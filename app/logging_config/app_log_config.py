@@ -16,13 +16,11 @@ LOGGING_CONFIG = {
     },
     'handlers': {
         'default': {
-            'level': 'DEBUG',
             'formatter': 'standard',
             'class': 'logging.StreamHandler',
             'stream': 'ext://sys.stdout',  # Default is stderr
         },
         'file.handler': {
-            'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
             'formatter': 'standard',
             'filename': 'app/logs/flask.log',
@@ -30,7 +28,6 @@ LOGGING_CONFIG = {
             'backupCount': 5,
         },
         'file.handler.app_logger': {
-            'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
             'formatter': 'standard',
             'filename': 'app/logs/app.log',
@@ -38,7 +35,6 @@ LOGGING_CONFIG = {
             'backupCount': 5,
         },
         'file.handler.request': {
-            'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
             'formatter': 'RequestFormatter',
             'filename': 'app/logs/request.log',
@@ -46,7 +42,6 @@ LOGGING_CONFIG = {
             'backupCount': 5,
         },
         'file.handler.errors': {
-            'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
             'formatter': 'standard',
             'filename': 'app/logs/errors.log',
@@ -54,7 +49,6 @@ LOGGING_CONFIG = {
             'backupCount': 5,
         },
         'file.handler.sqlalchemy': {
-            'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
             'formatter': 'standard',
             'filename': 'app/logs/sqlalchemy.log',
@@ -62,7 +56,6 @@ LOGGING_CONFIG = {
             'backupCount': 5,
         },
         'file.handler.werkzeug': {
-            'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
             'formatter': 'standard',
             'filename': 'app/logs/werkzeug.log',
