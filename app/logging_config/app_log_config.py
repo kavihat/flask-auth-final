@@ -20,6 +20,13 @@ LOGGING_CONFIG = {
             'class': 'logging.StreamHandler',
             'stream': 'ext://sys.stdout',  # Default is stderr
         },
+        'file.handler': {
+            'class': 'logging.handlers.RotatingFileHandler',
+            'formatter': 'standard',
+            'filename': 'app/logs/flask.log',
+            'maxBytes': 10000000,
+            'backupCount': 5,
+        },
         'file.handler.app_logger': {
             'class': 'logging.handlers.RotatingFileHandler',
             'formatter': 'standard',

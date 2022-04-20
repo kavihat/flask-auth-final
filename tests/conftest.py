@@ -2,7 +2,11 @@
 # pylint: disable=redefined-outer-name
 
 import pytest
+
+from click.testing import CliRunner
+
 from app import create_app
+from app.cli import create_log_folder
 
 
 @pytest.fixture()
@@ -12,6 +16,7 @@ def application():
     application.config.update({
         "TESTING": True,
     })
+    CliRunner().invoke(create_log_folder)
     yield application
 
 

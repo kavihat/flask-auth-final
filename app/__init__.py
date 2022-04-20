@@ -1,12 +1,8 @@
 """A simple flask web app"""
-import datetime
-import logging
 import os
-import time
 
 import flask_login
-from flask import render_template, Flask, g, request
-from flask.logging import default_handler
+from flask import render_template, Flask
 from flask_bootstrap import Bootstrap5
 from flask_wtf.csrf import CSRFProtect
 
