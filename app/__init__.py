@@ -1,12 +1,8 @@
 """A simple flask web app"""
-import datetime
-import logging
 import os
-import time
 
 import flask_login
-from flask import render_template, Flask, g, request
-from flask.logging import default_handler
+from flask import render_template, Flask
 from flask_bootstrap import Bootstrap5
 from flask_wtf.csrf import CSRFProtect
 
@@ -49,6 +45,14 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///" + os.path.abspath(db_dir)
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.init_app(app)
+
+    # get root directory of project
+    root = os.path.dirname(os.path.abspath(__file__))
+    # set the name of the apps log folder to logs
+    logdir = os.path.join(root, 'logs')
+    # make a directory if it doesn't exist
+    if not os.path.exists(logdir):
+        os.mkdir(logdir)
 
     # add command function to cli commands
     app.cli.add_command(create_database)
