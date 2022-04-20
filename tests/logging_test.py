@@ -10,5 +10,3 @@ def test_create_log_folder():
     root = os.path.dirname(os.path.abspath(__file__))
     logdir = os.path.join(root, '../app/logs')
     assert os.path.exists(logdir) is True
-
-
