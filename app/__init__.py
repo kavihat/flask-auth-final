@@ -46,6 +46,14 @@ def create_app():
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.init_app(app)
 
+    # get root directory of project
+    root = os.path.dirname(os.path.abspath(__file__))
+    # set the name of the apps log folder to logs
+    logdir = os.path.join(root, 'logs')
+    # make a directory if it doesn't exist
+    if not os.path.exists(logdir):
+        os.mkdir(logdir)
+
     # add command function to cli commands
     app.cli.add_command(create_database)
     app.cli.add_command(create_log_folder)
